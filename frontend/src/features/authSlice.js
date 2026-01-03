@@ -6,7 +6,7 @@ export const loginUser = createAsyncThunk(
     "auth/loginUser",
     async (credentials, { rejectWithValue }) => {
         try {
-            const response = await axios.post("http://localhost:5000/api/auth/login", credentials);
+            const response = await axios.post("https://todo-task-giuw.onrender.com/api/auth/login", credentials);
             localStorage.setItem("token", response.data.token);
             localStorage.setItem("user", JSON.stringify(response.data.user));
             return response.data;
@@ -20,7 +20,7 @@ export const registerUser = createAsyncThunk(
     "auth/registerUser",
     async (credentials, { rejectWithValue }) => {
         try {
-            const response = await axios.post("http://localhost:5000/api/auth/register", credentials);
+            const response = await axios.post("https://todo-task-giuw.onrender.com/api/auth/register", credentials);
             localStorage.setItem("token", response.data.token);
             localStorage.setItem("user", JSON.stringify(response.data.user));
             return response.data;
