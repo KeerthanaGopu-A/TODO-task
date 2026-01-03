@@ -13,7 +13,7 @@ const getConfig = (getState) => {
 
 export const fetchTasks = createAsyncThunk("tasks/fetchTasks", async (_, { getState, rejectWithValue }) => {
     try {
-        const response = await axios.get("http://localhost:5000/api/tasks", getConfig(getState));
+        const response = await axios.get("https://todo-task-giuw.onrender.com/api/tasks", getConfig(getState));
         return response.data;
     } catch (error) {
         return rejectWithValue(error.response.data.message);
@@ -22,7 +22,7 @@ export const fetchTasks = createAsyncThunk("tasks/fetchTasks", async (_, { getSt
 
 export const createTask = createAsyncThunk("tasks/createTask", async (taskData, { getState, rejectWithValue }) => {
     try {
-        const response = await axios.post("http://localhost:5000/api/tasks", taskData, getConfig(getState));
+        const response = await axios.post("https://todo-task-giuw.onrender.com/api/tasks", taskData, getConfig(getState));
         return response.data;
     } catch (error) {
         return rejectWithValue(error.response.data.message);
@@ -31,7 +31,7 @@ export const createTask = createAsyncThunk("tasks/createTask", async (taskData, 
 
 export const updateTask = createAsyncThunk("tasks/updateTask", async ({ id, data }, { getState, rejectWithValue }) => {
     try {
-        const response = await axios.put(`http://localhost:5000/api/tasks/${id}`, data, getConfig(getState));
+        const response = await axios.put(`https://todo-task-giuw.onrender.com/api/tasks/${id}`, data, getConfig(getState));
         return response.data;
     } catch (error) {
         return rejectWithValue(error.response.data.message);
@@ -40,7 +40,7 @@ export const updateTask = createAsyncThunk("tasks/updateTask", async ({ id, data
 
 export const deleteTask = createAsyncThunk("tasks/deleteTask", async (id, { getState, rejectWithValue }) => {
     try {
-        await axios.delete(`http://localhost:5000/api/tasks/${id}`, getConfig(getState));
+        await axios.delete(`https://todo-task-giuw.onrender.com/api/tasks/${id}`, getConfig(getState));
         return id;
     } catch (error) {
         return rejectWithValue(error.response.data.message);
